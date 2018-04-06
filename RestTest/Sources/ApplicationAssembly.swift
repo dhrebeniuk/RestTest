@@ -26,8 +26,8 @@ class ApplicationAssembly {
 	
 	
 	private func registerAssemblies(in container: Swinject.Container) {
-
-		// TODO:
+		let feedAssembly = FeedAssembly()
+		feedAssembly.assembly(in: container)
 	}
 	
 }

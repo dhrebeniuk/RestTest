@@ -6,5 +6,7 @@ target "RestTest" do
 	pod 'Swinject', '~> 2.1.1'
 	pod 'SwinjectStoryboard', '~> 1.1.2'
 	pod 'SegueWithCompletion'
+	pod 'Alamofire', '~> 4.5.1'
+	pod 'AlamofireNetworkActivityIndicator', '~> 2.2.0'
 end
 
