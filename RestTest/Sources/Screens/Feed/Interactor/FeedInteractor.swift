@@ -76,7 +76,8 @@ class FeedInteractor: FeedInteractorInput {
 	}
 	
 	private func createFetchResultController() -> NSFetchedResultsController<Post>? {
-		let fetchedResultsController = self.managedContext?.fetchResultsController(entityName: Post.entity().name ?? "", sortDescriptors: []) as? NSFetchedResultsController<Post>
+		let sortDescriptor = NSSortDescriptor.init(key: #keyPath(Post.postId), ascending: true)
+		let fetchedResultsController = self.managedContext?.fetchResultsController(entityName: Post.entity().name ?? "", sortDescriptors: [sortDescriptor]) as? NSFetchedResultsController<Post>
 		
 		return fetchedResultsController
 	}
