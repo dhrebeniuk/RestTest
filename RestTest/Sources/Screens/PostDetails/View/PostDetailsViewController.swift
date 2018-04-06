@@ -21,6 +21,7 @@ class PostDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		self.refreshControl?.beginRefreshing()
 		self.loadData()
     }
 	
