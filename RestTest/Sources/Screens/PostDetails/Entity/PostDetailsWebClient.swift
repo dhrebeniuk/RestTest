@@ -11,8 +11,8 @@ import Alamofire
 
 class PostDetailsWebClient: WebClient {
 
-	public func requestPostDetails(post: JSONPost, completion: @escaping JSONResultCompletion<JSONPostDetails>) {
-		let postDetailsURL = self.webAPIURL.appendingPathComponent("posts").appendingPathComponent("\(post.id)")
+	public func requestPostDetails(postId: Int, completion: @escaping RequestResultCompletion<JSONPostDetails>) {
+		let postDetailsURL = self.webAPIURL.appendingPathComponent("posts").appendingPathComponent("\(postId)")
 		
 		Alamofire.request(postDetailsURL, method: .get, parameters: [:]).responseJSON { (response) in
 			switch response.result {
@@ -21,14 +21,14 @@ class PostDetailsWebClient: WebClient {
 					let decoder = JSONDecoder()
 					do {
 						let posts = try decoder.decode(JSONPostDetails.self, from: jsonData)
-						completion(JSONResult<JSONPostDetails>.success(posts))
+						completion(RequestResult<JSONPostDetails>.success(posts))
 					}
 					catch {
-						completion(JSONResult<JSONPostDetails>.error(error))
+						completion(RequestResult<JSONPostDetails>.error(error))
 					}
 				}
 			case .failure(let error):
-				completion(JSONResult<JSONPostDetails>.error(error))
+				completion(RequestResult<JSONPostDetails>.error(error))
 			}
 		}
 	}

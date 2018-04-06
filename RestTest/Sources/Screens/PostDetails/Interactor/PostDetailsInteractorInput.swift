@@ -10,6 +10,6 @@ import Foundation
 
 protocol PostDetailsInteractorInput {
 	
-	func load(post: JSONPost, completion: @escaping JSONResultCompletion<JSONPostDetails>)
+	func load(post: Post, completion: @escaping RequestResultCompletion<Post>)
 
 }

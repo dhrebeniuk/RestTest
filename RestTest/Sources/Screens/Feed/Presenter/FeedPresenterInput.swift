@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 protocol FeedPresenterInput {
 
-	func load(completion: @escaping ([JSONPost]) -> ())
+	func load(completion: @escaping (NSFetchedResultsController<Post>) -> ())
 	
-	func show(details post: JSONPost)
+	func show(details post: Post)
 
 }

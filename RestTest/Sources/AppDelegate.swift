@@ -8,6 +8,7 @@
 
 import UIKit
 import SwinjectStoryboard
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	let applicationAssembly = ApplicationAssembly()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		NetworkActivityIndicatorManager.shared.isEnabled = true
 
 		self.applicationAssembly.setup()
 		

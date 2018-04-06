@@ -9,6 +9,7 @@
 import UIKit
 import Swinject
 import SwinjectStoryboard
+import CoreData
 
 class PostDetailsAssembly: Assembly {
 
@@ -24,7 +25,8 @@ class PostDetailsAssembly: Assembly {
 		
 		container.register(PostDetailsInteractor.self) { resolver in
 			let webClient = resolver.resolve(PostDetailsWebClient.self)
-			return PostDetailsInteractor(webClient: webClient)
+			let managedContext = resolver.resolve(NSManagedObjectContext.self)
+			return PostDetailsInteractor(webClient: webClient, managedContext: managedContext)
 		}
 		
 		container.register(PostDetailsPresenter.self) { resolver in

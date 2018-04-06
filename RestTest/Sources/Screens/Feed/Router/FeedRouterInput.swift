@@ -10,7 +10,7 @@ import Foundation
 
 protocol FeedRouterInput {
 	
-	func show(details post: JSONPost)
+	func show(details post: Post)
 
 	func show(error: Error?)
 	

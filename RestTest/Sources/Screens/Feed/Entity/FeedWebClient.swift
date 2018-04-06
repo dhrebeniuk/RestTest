@@ -11,7 +11,7 @@ import Alamofire
 
 class FeedWebClient: WebClient {
 
-	public func requestPosts(completion: @escaping JSONResultCompletion<[JSONPost]>) {
+	public func requestPosts(completion: @escaping RequestResultCompletion<[JSONPost]>) {
 		let postsURL = self.webAPIURL.appendingPathComponent("posts")
 
 		Alamofire.request(postsURL, method: .get, parameters: [:]).responseJSON { (response) in
@@ -21,14 +21,14 @@ class FeedWebClient: WebClient {
 					let decoder = JSONDecoder()
 					do {
 						let posts = try decoder.decode([JSONPost].self, from: jsonData)
-						completion(JSONResult<[JSONPost]>.success(posts))
+						completion(RequestResult<[JSONPost]>.success(posts))
 					}
 					catch {
-						completion(JSONResult<[JSONPost]>.error(error))
+						completion(RequestResult<[JSONPost]>.error(error))
 					}
 				}
 			case .failure(let error):
-				completion(JSONResult<[JSONPost]>.error(error))
+				completion(RequestResult<[JSONPost]>.error(error))
 			}
 		}
 	}

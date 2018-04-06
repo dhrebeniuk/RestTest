@@ -7,17 +7,72 @@
 //
 
 import Foundation
+import CoreData
 
 class FeedInteractor: FeedInteractorInput {
 
 	private var webClient: FeedWebClient?
-	init(webClient: FeedWebClient?) {
+	private var managedContext: NSManagedObjectContext?
+	init(webClient: FeedWebClient?, managedContext: NSManagedObjectContext?) {
 		self.webClient = webClient
+		self.managedContext = managedContext
 	}
 	
-	func load(completion: @escaping JSONResultCompletion<[JSONPost]>) {
-		self.webClient?.requestPosts() { result in
-			completion(result)
+	func load(completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>) {
+		self.webClient?.requestPosts() { [weak self] in
+			switch $0 {
+			case .success(let posts):
+				self?.fetch(posts: posts, completion: completion)
+			case .error(let error):
+				completion(RequestResult<NSFetchedResultsController<Post>>.error(error))
+			}
 		}
 	}
+	
+	private func fetch(posts: [JSONPost], completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>) {
+		
+		let privateManagedContext = self.managedContext.map() { managedContext -> NSManagedObjectContext in
+			let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+			context.parent = managedContext
+			return context
+		}
+		
+		Post.entity().name.map() { entityName in
+			let fetchRequest = NSFetchRequest<Post>(entityName: entityName)
+			(fetchRequest as? NSFetchRequest<NSFetchRequestResult>).map() {
+				let deleteRequest = NSBatchDeleteRequest(fetchRequest: $0)
+				privateManagedContext.map() {
+					_ = try? $0.persistentStoreCoordinator?.execute(deleteRequest, with: $0)
+				}
+			}
+			
+			for jsonPost in posts {
+				privateManagedContext.map() {
+					let post = NSEntityDescription.insertNewObject(forEntityName: entityName, into: $0) as? Post
+					post?.title = jsonPost.title
+					post?.body = jsonPost.body
+					post?.postId = Int64(jsonPost.id)
+					post?.userId = Int64(jsonPost.userId)
+				}
+			}
+		}
+		
+		try? privateManagedContext?.save()
+		
+		DispatchQueue.main.async {
+			try? self.managedContext?.save()
+			
+			self.createFetchResultController().map() {
+				
+				completion(RequestResult<NSFetchedResultsController<Post>>.success($0))
+			}
+		}
+	}
+	
+	private func createFetchResultController() -> NSFetchedResultsController<Post>? {
+		let fetchedResultsController = self.managedContext?.fetchResultsController(entityName: Post.entity().name ?? "", sortDescriptors: []) as? NSFetchedResultsController<Post>
+		
+		return fetchedResultsController
+	}
+
 }

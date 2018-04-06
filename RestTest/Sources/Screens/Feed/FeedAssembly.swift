@@ -9,6 +9,7 @@
 import UIKit
 import Swinject
 import SwinjectStoryboard
+import CoreData
 
 class FeedAssembly: Assembly {
 	
@@ -20,7 +21,8 @@ class FeedAssembly: Assembly {
 		
 		container.register(FeedInteractor.self) { resolver in
 			let webClient = resolver.resolve(FeedWebClient.self)
-			return FeedInteractor(webClient: webClient)
+			let managedContext = resolver.resolve(NSManagedObjectContext.self)
+			return FeedInteractor(webClient: webClient, managedContext: managedContext)
 		}
 		
 		container.register(FeedPresenter.self) { resolver in

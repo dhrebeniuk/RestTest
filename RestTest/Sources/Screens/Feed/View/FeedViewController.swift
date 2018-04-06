@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class FeedViewController: UITableViewController {
 	
 	var presenter: FeedPresenterInput?
-	var dataSourceAdapter: DataSourceAdapter<FeedCell, JSONPost>?
+	var dataSourceAdapter: DataSourceFetchResultsAdapter<FeedCell, Post>?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +29,20 @@ class FeedViewController: UITableViewController {
 	}
 	
 	private func loadData() {
-		self.presenter?.load() { [weak self] posts in
+		self.presenter?.load() { [weak self] postsResults in
 			guard let `self` = self else { return }
 			
-			self.dataSourceAdapter = DataSourceAdapter<FeedCell, JSONPost>(identifier: FeedViewController.feedCellIdentifier, objects: posts, handler: { (cell, post) in
-			
-				cell.postTitleLabel?.text = post.title
-				cell.postBodyLabel?.text = post.body
-			})
+			self.dataSourceAdapter = (postsResults as? NSFetchedResultsController<NSFetchRequestResult>).map() { postsResults in
+				DataSourceFetchResultsAdapter<FeedCell, Post>(identifier: FeedViewController.feedCellIdentifier, fetchedResultsController: postsResults) { (cell, post) in
+					cell.postTitleLabel?.text = post.title
+					cell.postBodyLabel?.text = post.body
+				}
+			}
 			
 			self.tableView.dataSource = self.dataSourceAdapter
+			
+			try? postsResults.performFetch()
+			
 			self.tableView.reloadData()
 			
 			self.unblockUI()
@@ -47,12 +52,8 @@ class FeedViewController: UITableViewController {
 	// MARK: - UITableViewDelegate
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		self.dataSourceAdapter.map() {
-			let objects = $0.objects
-			if (objects.count > indexPath.row) {
-				let post = objects[indexPath.row]
-				self.presenter?.show(details: post)
-			}
+		self.dataSourceAdapter?.object(at: indexPath).map() {
+			self.presenter?.show(details: $0)
 		}
 	}
 }

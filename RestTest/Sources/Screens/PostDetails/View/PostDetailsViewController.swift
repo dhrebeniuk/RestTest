@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class PostDetailsViewController: UITableViewController {
 
-	var post: JSONPost?
+	var post: Post?
 	
 	var presenter: PostDetailsPresenterInput?
 	

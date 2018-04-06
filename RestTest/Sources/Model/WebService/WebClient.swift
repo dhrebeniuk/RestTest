@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum JSONResult<T> {
+public enum RequestResult<T> {
 	case success(T)
 	case error(Error)
 	
@@ -22,7 +22,7 @@ public enum JSONResult<T> {
 	}
 }
 
-public typealias JSONResultCompletion<T> = (_ result: JSONResult<T>) -> ()
+public typealias RequestResultCompletion<T> = (_ result: RequestResult<T>) -> ()
 
 open class WebClient {
 

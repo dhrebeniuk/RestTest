@@ -16,7 +16,7 @@ class FeedRouter {
 
 extension FeedRouter: FeedRouterInput {
 	
-	func show(details post: JSONPost) {
+	func show(details post: Post) {
 		self.view?.perform(segue: FeedRouter.postDetailsSegue, prepare: { (postDetailsViewController: PostDetailsViewController) in
 			postDetailsViewController.post = post
 		})

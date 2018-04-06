@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
 protocol FeedInteractorInput {
 	
-	func load(completion: @escaping JSONResultCompletion<[JSONPost]>)
+	func load(completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>)
 	
 }

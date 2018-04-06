@@ -9,6 +9,7 @@
 import UIKit
 import Swinject
 import SwinjectStoryboard
+import CoreData
 
 class ApplicationAssembly {
 	
@@ -17,8 +18,8 @@ class ApplicationAssembly {
 	func setup() {
 		Container.loggingFunction = nil
 
-		container.register(WebClient.self) { _ in
-			return WebClient()
+		container.register(NSManagedObjectContext.self) { _ in
+			return ApplicationAssembly.createManagedObjectContenxt()
 		}.inObjectScope(.container)
 
 		self.registerAssemblies(in: self.container)
@@ -34,3 +35,17 @@ class ApplicationAssembly {
 	}
 	
 }
+
+extension ApplicationAssembly {
+	
+	private static func createManagedObjectContenxt() -> NSManagedObjectContext {
+		let storageURL = try! FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("PostsDataModel.sqlite")
+		
+		guard let managedModelURL = Bundle.main.url(forResource: "PostsDataModel", withExtension: "momd") else { fatalError() }
+		guard let managedObjectModel = NSManagedObjectModel(contentsOf: managedModelURL) else { fatalError() }
+		
+		return try! NSManagedObjectContext.managedObjectContext(atURL: storageURL, withModel: managedObjectModel)
+	}
+	
+}
+

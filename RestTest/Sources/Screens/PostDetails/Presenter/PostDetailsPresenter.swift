@@ -22,7 +22,7 @@ class PostDetailsPresenter {
 
 extension PostDetailsPresenter: PostDetailsPresenterInput {
 	
-	func load(post: JSONPost, completion: @escaping (JSONPostDetails) -> ()) {
+	func load(post: Post, completion: @escaping (Post) -> ()) {
 		self.interactor?.load(post: post) { [weak self] in
 			switch $0 {
 			case .success(let result):

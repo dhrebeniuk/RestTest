@@ -36,6 +36,11 @@
 		D90EFEC82077C9B100DD80E9 /* PostDetailsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEC72077C9B100DD80E9 /* PostDetailsInteractorInput.swift */; };
 		D90EFECB2077CD3200DD80E9 /* PostDetailsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFECA2077CD3200DD80E9 /* PostDetailsRouterInput.swift */; };
 		D90EFECD2077CD4300DD80E9 /* PostDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFECC2077CD4300DD80E9 /* PostDetailsRouter.swift */; };
+		D90EFED02077D31F00DD80E9 /* PostsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D90EFECE2077D31F00DD80E9 /* PostsDataModel.xcdatamodeld */; };
+		D90EFED22077D3A800DD80E9 /* NSManagedObjectContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFED12077D3A800DD80E9 /* NSManagedObjectContextExtensions.swift */; };
+		D90EFEDF2077DCDA00DD80E9 /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEDD2077DCDA00DD80E9 /* Post+CoreDataClass.swift */; };
+		D90EFEE02077DCDA00DD80E9 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEDE2077DCDA00DD80E9 /* Post+CoreDataProperties.swift */; };
+		D90EFEE22077E29700DD80E9 /* DataSourceFetchResultsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEE12077E29700DD80E9 /* DataSourceFetchResultsAdapter.swift */; };
 		D9E928DE20776BBA004C4889 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E928DD20776BBA004C4889 /* AppDelegate.swift */; };
 		D9E928E320776BBA004C4889 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E928E120776BBA004C4889 /* Main.storyboard */; };
 		D9E928E520776BBA004C4889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E928E420776BBA004C4889 /* Assets.xcassets */; };
@@ -75,6 +80,11 @@
 		D90EFEC72077C9B100DD80E9 /* PostDetailsInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsInteractorInput.swift; sourceTree = "<group>"; };
 		D90EFECA2077CD3200DD80E9 /* PostDetailsRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsRouterInput.swift; sourceTree = "<group>"; };
 		D90EFECC2077CD4300DD80E9 /* PostDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsRouter.swift; sourceTree = "<group>"; };
+		D90EFECF2077D31F00DD80E9 /* PostsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PostsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		D90EFED12077D3A800DD80E9 /* NSManagedObjectContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContextExtensions.swift; sourceTree = "<group>"; };
+		D90EFEDD2077DCDA00DD80E9 /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D90EFEDE2077DCDA00DD80E9 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D90EFEE12077E29700DD80E9 /* DataSourceFetchResultsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceFetchResultsAdapter.swift; sourceTree = "<group>"; };
 		D9E928DA20776BBA004C4889 /* RestTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E928DD20776BBA004C4889 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E928E220776BBA004C4889 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +126,7 @@
 		D90EFE832077723600DD80E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D90EFED82077DC4200DD80E9 /* CoreData */,
 				D90EFEB22077BFED00DD80E9 /* JSON */,
 				D90EFE842077723B00DD80E9 /* WebService */,
 			);
@@ -189,6 +200,7 @@
 			children = (
 				D90EFE9C2077769400DD80E9 /* Assembly.swift */,
 				D90EFEA62077B04100DD80E9 /* View.swift */,
+				D90EFEE12077E29700DD80E9 /* DataSourceFetchResultsAdapter.swift */,
 				D90EFEB02077B87400DD80E9 /* DataSourceAdapter.swift */,
 			);
 			path = Foundation;
@@ -198,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				D90EFEAE2077B66700DD80E9 /* UIViewControllerExtensions.swift */,
+				D90EFED12077D3A800DD80E9 /* NSManagedObjectContextExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +268,15 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		D90EFED82077DC4200DD80E9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D90EFEDD2077DCDA00DD80E9 /* Post+CoreDataClass.swift */,
+				D90EFEDE2077DCDA00DD80E9 /* Post+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		D9E928D120776BBA004C4889 = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +323,7 @@
 				D9E928E420776BBA004C4889 /* Assets.xcassets */,
 				D9E928E620776BBA004C4889 /* LaunchScreen.storyboard */,
 				D9E928E920776BBA004C4889 /* Info.plist */,
+				D90EFECE2077D31F00DD80E9 /* PostsDataModel.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -481,9 +504,12 @@
 				D90EFE9D2077769400DD80E9 /* Assembly.swift in Sources */,
 				D90EFEA72077B04100DD80E9 /* View.swift in Sources */,
 				D90EFE972077763500DD80E9 /* FeedCell.swift in Sources */,
+				D90EFEDF2077DCDA00DD80E9 /* Post+CoreDataClass.swift in Sources */,
+				D90EFEE02077DCDA00DD80E9 /* Post+CoreDataProperties.swift in Sources */,
 				D90EFEAF2077B66700DD80E9 /* UIViewControllerExtensions.swift in Sources */,
 				D90EFE862077731E00DD80E9 /* WebClient.swift in Sources */,
 				D90EFE9F2077778200DD80E9 /* FeedView.swift in Sources */,
+				D90EFEE22077E29700DD80E9 /* DataSourceFetchResultsAdapter.swift in Sources */,
 				D90EFE882077750700DD80E9 /* FeedViewController.swift in Sources */,
 				D90EFECB2077CD3200DD80E9 /* PostDetailsRouterInput.swift in Sources */,
 				D90EFEC42077C96F00DD80E9 /* PostDetailsWebClient.swift in Sources */,
@@ -502,7 +528,9 @@
 				D90EFEB42077C23200DD80E9 /* JSONPostDetails.swift in Sources */,
 				D90EFEB72077C28500DD80E9 /* PostDetailsView.swift in Sources */,
 				D90EFE992077766000DD80E9 /* FeedAssembly.swift in Sources */,
+				D90EFED02077D31F00DD80E9 /* PostsDataModel.xcdatamodeld in Sources */,
 				D90EFE8A2077752700DD80E9 /* FeedPresenter.swift in Sources */,
+				D90EFED22077D3A800DD80E9 /* NSManagedObjectContextExtensions.swift in Sources */,
 				D90EFEC82077C9B100DD80E9 /* PostDetailsInteractorInput.swift in Sources */,
 				D9E928DE20776BBA004C4889 /* AppDelegate.swift in Sources */,
 				D90EFEA32077780500DD80E9 /* FeedInteractorInput.swift in Sources */,
@@ -693,6 +721,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D90EFECE2077D31F00DD80E9 /* PostsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D90EFECF2077D31F00DD80E9 /* PostsDataModel.xcdatamodel */,
+			);
+			currentVersion = D90EFECF2077D31F00DD80E9 /* PostsDataModel.xcdatamodel */;
+			path = PostsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D9E928D220776BBA004C4889 /* Project object */;
 }

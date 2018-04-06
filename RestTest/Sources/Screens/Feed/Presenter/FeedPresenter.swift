@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class FeedPresenter {
 
@@ -24,7 +25,7 @@ class FeedPresenter {
 
 extension FeedPresenter: FeedPresenterInput {
 	
-	func load(completion: @escaping ([JSONPost]) -> ()) {
+	func load(completion: @escaping (NSFetchedResultsController<Post>) -> ()) {
 		self.interactor?.load() { [weak self] in
 			switch $0 {
 			case .success(let result):
@@ -35,7 +36,7 @@ extension FeedPresenter: FeedPresenterInput {
 		}
 	}
 	
-	func show(details post: JSONPost) {
+	func show(details post: Post) {
 		self.router?.show(details: post)
 	}
 
