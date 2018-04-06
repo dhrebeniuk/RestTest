@@ -1,0 +1,19 @@
+PODS:
+  - SegueWithCompletion (0.1.6)
+  - Swinject (2.1.1)
+  - SwinjectStoryboard (1.1.2):
+    - Swinject (~> 2.1)
+
+DEPENDENCIES:
+  - SegueWithCompletion
+  - Swinject (~> 2.1.1)
+  - SwinjectStoryboard (~> 1.1.2)
+
+SPEC CHECKSUMS:
+  SegueWithCompletion: e18763a8c4b99e18fa9b0e2239b8fd71e7d52c5a
+  Swinject: afea49fd95f392b41171669f165842879c48fad6
+  SwinjectStoryboard: 92e75763c3299cdf627bef98a5180dc894864336
+
+PODFILE CHECKSUM: 4d5520f5f3f753f5c354b5f1d9f7e4a37fa1e67a
+
+COCOAPODS: 1.4.0
