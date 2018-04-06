@@ -125,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				D90EFED82077DC4200DD80E9 /* CoreData */,
-				D90EFEB22077BFED00DD80E9 /* JSON */,
 				D90EFE842077723B00DD80E9 /* WebService */,
 			);
 			path = Model;
@@ -170,6 +169,7 @@
 		D90EFE92207775ED00DD80E9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				D90EFEAA2077B24500DD80E9 /* JSONPost.swift */,
 				D90EFEA82077B0A000DD80E9 /* FeedWebClient.swift */,
 			);
 			path = Entity;
@@ -212,15 +212,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		D90EFEB22077BFED00DD80E9 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				D90EFEAA2077B24500DD80E9 /* JSONPost.swift */,
-				D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		D90EFEB52077C25600DD80E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +242,7 @@
 		D90EFEC22077C95800DD80E9 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */,
 				D90EFEC32077C96F00DD80E9 /* PostDetailsWebClient.swift */,
 			);
 			path = Entity;
