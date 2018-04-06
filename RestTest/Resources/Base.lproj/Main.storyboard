@@ -28,7 +28,7 @@
         <!--Posts-->
         <scene sceneID="sbZ-Sq-I9U">
             <objects>
-                <tableViewController id="tg5-YV-nlU" customClass="FeedViewController" customModule="RestTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Posts" id="tg5-YV-nlU" customClass="FeedViewController" customModule="RestTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="WoC-75-gBb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,10 +90,54 @@
                             <action selector="refreshData:" destination="tg5-YV-nlU" eventType="valueChanged" id="RUc-oI-cRZ"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <segue destination="eYu-75-03K" kind="show" identifier="postDetailsSegue" id="Tvd-Of-JVN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8c-ku-hxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="34"/>
+            <point key="canvasLocation" x="25" y="45"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="aeH-Ad-coP">
+            <objects>
+                <tableViewController title="Details" id="eYu-75-03K" customClass="PostDetailsViewController" customModule="RestTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dkb-wi-t3x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="cAr-Fj-BQL">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6QG-nI-ogD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6QG-nI-ogD" id="jap-F2-OCN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TQn-rA-KDa">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TQn-rA-KDa" id="ifS-zJ-qHL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="eYu-75-03K" id="TRp-IV-MtC"/>
+                            <outlet property="delegate" destination="eYu-75-03K" id="CLI-Gx-3SC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Details" id="5Ad-ZQ-naa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JlM-Fj-ttU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="45"/>
         </scene>
     </scenes>
 </document>

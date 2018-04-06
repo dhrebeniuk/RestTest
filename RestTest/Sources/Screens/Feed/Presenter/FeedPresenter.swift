@@ -34,4 +34,9 @@ extension FeedPresenter: FeedPresenterInput {
 			}
 		}
 	}
+	
+	func show(details post: JSONPost) {
+		self.router?.show(details: post)
+	}
+
 }

@@ -43,6 +43,18 @@ class FeedViewController: UITableViewController {
 			self.unblockUI()
 		}
 	}
+	
+	// MARK: - UITableViewDelegate
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.dataSourceAdapter.map() {
+			let objects = $0.objects
+			if (objects.count > indexPath.row) {
+				let post = objects[indexPath.row]
+				self.presenter?.show(details: post)
+			}
+		}
+	}
 }
 
 extension FeedViewController: FeedView {

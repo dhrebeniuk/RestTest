@@ -12,4 +12,6 @@ protocol FeedPresenterInput {
 
 	func load(completion: @escaping ([JSONPost]) -> ())
 	
+	func show(details post: JSONPost)
+
 }

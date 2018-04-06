@@ -1,5 +1,5 @@
 //
-//  FeedRouterInput.swift
+//  JSONPostDetails.swift
 //  RestTest
 //
 //  Created by Dmytro Hrebeniuk on 4/6/18.
@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol FeedRouterInput {
-	
-	func show(details post: JSONPost)
-
-	func show(error: Error?)
+class JSONPostDetails: JSONPost {
 	
 }

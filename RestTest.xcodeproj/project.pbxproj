@@ -25,6 +25,9 @@
 		D90EFEAB2077B24500DD80E9 /* JSONPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEAA2077B24500DD80E9 /* JSONPost.swift */; };
 		D90EFEAF2077B66700DD80E9 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEAE2077B66700DD80E9 /* UIViewControllerExtensions.swift */; };
 		D90EFEB12077B87400DD80E9 /* DataSourceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB02077B87400DD80E9 /* DataSourceAdapter.swift */; };
+		D90EFEB42077C23200DD80E9 /* JSONPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */; };
+		D90EFEB72077C28500DD80E9 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */; };
+		D90EFEB92077C2AE00DD80E9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */; };
 		D9E928DE20776BBA004C4889 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E928DD20776BBA004C4889 /* AppDelegate.swift */; };
 		D9E928E320776BBA004C4889 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E928E120776BBA004C4889 /* Main.storyboard */; };
 		D9E928E520776BBA004C4889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E928E420776BBA004C4889 /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 		D90EFEAA2077B24500DD80E9 /* JSONPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPost.swift; sourceTree = "<group>"; };
 		D90EFEAE2077B66700DD80E9 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		D90EFEB02077B87400DD80E9 /* DataSourceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAdapter.swift; sourceTree = "<group>"; };
+		D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPostDetails.swift; sourceTree = "<group>"; };
+		D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
+		D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		D9E928DA20776BBA004C4889 /* RestTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E928DD20776BBA004C4889 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E928E220776BBA004C4889 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -184,8 +190,18 @@
 			isa = PBXGroup;
 			children = (
 				D90EFEAA2077B24500DD80E9 /* JSONPost.swift */,
+				D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		D90EFEB52077C25600DD80E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */,
+				D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D9E928D120776BBA004C4889 = {
@@ -242,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				D9E928F420776D23004C4889 /* Feed */,
-				D9E928F520776D2C004C4889 /* Details */,
+				D9E928F520776D2C004C4889 /* PostDetails */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -260,11 +276,12 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		D9E928F520776D2C004C4889 /* Details */ = {
+		D9E928F520776D2C004C4889 /* PostDetails */ = {
 			isa = PBXGroup;
 			children = (
+				D90EFEB52077C25600DD80E9 /* View */,
 			);
-			path = Details;
+			path = PostDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,9 +432,12 @@
 				D90EFEAB2077B24500DD80E9 /* JSONPost.swift in Sources */,
 				D90EFE8C2077753A00DD80E9 /* FeedInteractor.swift in Sources */,
 				D90EFEB12077B87400DD80E9 /* DataSourceAdapter.swift in Sources */,
+				D90EFEB92077C2AE00DD80E9 /* PostDetailsViewController.swift in Sources */,
 				D90EFEA1207777C500DD80E9 /* FeedPresenterInput.swift in Sources */,
 				D9E928F320776CED004C4889 /* ApplicationAssembly.swift in Sources */,
 				D90EFEA52077782A00DD80E9 /* FeedRouterInput.swift in Sources */,
+				D90EFEB42077C23200DD80E9 /* JSONPostDetails.swift in Sources */,
+				D90EFEB72077C28500DD80E9 /* PostDetailsView.swift in Sources */,
 				D90EFE992077766000DD80E9 /* FeedAssembly.swift in Sources */,
 				D90EFE8A2077752700DD80E9 /* FeedPresenter.swift in Sources */,
 				D9E928DE20776BBA004C4889 /* AppDelegate.swift in Sources */,
