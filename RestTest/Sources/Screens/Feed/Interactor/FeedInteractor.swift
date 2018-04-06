@@ -16,8 +16,8 @@ class FeedInteractor: FeedInteractorInput {
 	}
 	
 	func load(completion: @escaping JSONResultCompletion<[JSONPost]>) {
-		self.webClient?.requestPosts(completion: { result in
+		self.webClient?.requestPosts() { result in
 			completion(result)
-		})
+		}
 	}
 }

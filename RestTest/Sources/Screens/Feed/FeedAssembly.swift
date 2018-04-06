@@ -32,7 +32,7 @@ class FeedAssembly: Assembly {
 		
 		container.register(FeedRouter.self) { resolver in
 			return FeedRouter()
-		}
+		}.inObjectScope(.container)
 		
 		container.storyboardInitCompleted(FeedViewController.self) { resolver, controller in
 			let router = resolver.resolve(FeedRouter.self)!

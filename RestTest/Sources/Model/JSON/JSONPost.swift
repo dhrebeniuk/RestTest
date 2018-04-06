@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JSONPost: Decodable {
+struct JSONPost: Decodable {
 
 	public let userId: Int
 	public let id: Int

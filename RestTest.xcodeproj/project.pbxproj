@@ -28,6 +28,14 @@
 		D90EFEB42077C23200DD80E9 /* JSONPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */; };
 		D90EFEB72077C28500DD80E9 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */; };
 		D90EFEB92077C2AE00DD80E9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */; };
+		D90EFEBD2077C8CD00DD80E9 /* PostDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEBC2077C8CD00DD80E9 /* PostDetailsPresenter.swift */; };
+		D90EFEBF2077C8D900DD80E9 /* PostDetailsPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEBE2077C8D900DD80E9 /* PostDetailsPresenterInput.swift */; };
+		D90EFEC12077C91B00DD80E9 /* PostDetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEC02077C91B00DD80E9 /* PostDetailsAssembly.swift */; };
+		D90EFEC42077C96F00DD80E9 /* PostDetailsWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEC32077C96F00DD80E9 /* PostDetailsWebClient.swift */; };
+		D90EFEC62077C9A000DD80E9 /* PostDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEC52077C9A000DD80E9 /* PostDetailsInteractor.swift */; };
+		D90EFEC82077C9B100DD80E9 /* PostDetailsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEC72077C9B100DD80E9 /* PostDetailsInteractorInput.swift */; };
+		D90EFECB2077CD3200DD80E9 /* PostDetailsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFECA2077CD3200DD80E9 /* PostDetailsRouterInput.swift */; };
+		D90EFECD2077CD4300DD80E9 /* PostDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFECC2077CD4300DD80E9 /* PostDetailsRouter.swift */; };
 		D9E928DE20776BBA004C4889 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E928DD20776BBA004C4889 /* AppDelegate.swift */; };
 		D9E928E320776BBA004C4889 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E928E120776BBA004C4889 /* Main.storyboard */; };
 		D9E928E520776BBA004C4889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9E928E420776BBA004C4889 /* Assets.xcassets */; };
@@ -59,6 +67,14 @@
 		D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPostDetails.swift; sourceTree = "<group>"; };
 		D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		D90EFEBC2077C8CD00DD80E9 /* PostDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsPresenter.swift; sourceTree = "<group>"; };
+		D90EFEBE2077C8D900DD80E9 /* PostDetailsPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsPresenterInput.swift; sourceTree = "<group>"; };
+		D90EFEC02077C91B00DD80E9 /* PostDetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsAssembly.swift; sourceTree = "<group>"; };
+		D90EFEC32077C96F00DD80E9 /* PostDetailsWebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsWebClient.swift; sourceTree = "<group>"; };
+		D90EFEC52077C9A000DD80E9 /* PostDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsInteractor.swift; sourceTree = "<group>"; };
+		D90EFEC72077C9B100DD80E9 /* PostDetailsInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsInteractorInput.swift; sourceTree = "<group>"; };
+		D90EFECA2077CD3200DD80E9 /* PostDetailsRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsRouterInput.swift; sourceTree = "<group>"; };
+		D90EFECC2077CD4300DD80E9 /* PostDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsRouter.swift; sourceTree = "<group>"; };
 		D9E928DA20776BBA004C4889 /* RestTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E928DD20776BBA004C4889 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E928E220776BBA004C4889 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -204,6 +220,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D90EFEBA2077C8A400DD80E9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				D90EFEC72077C9B100DD80E9 /* PostDetailsInteractorInput.swift */,
+				D90EFEC52077C9A000DD80E9 /* PostDetailsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		D90EFEBB2077C8B100DD80E9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D90EFEBE2077C8D900DD80E9 /* PostDetailsPresenterInput.swift */,
+				D90EFEBC2077C8CD00DD80E9 /* PostDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D90EFEC22077C95800DD80E9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D90EFEC32077C96F00DD80E9 /* PostDetailsWebClient.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		D90EFEC92077CD1300DD80E9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D90EFECA2077CD3200DD80E9 /* PostDetailsRouterInput.swift */,
+				D90EFECC2077CD4300DD80E9 /* PostDetailsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		D9E928D120776BBA004C4889 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +331,11 @@
 			isa = PBXGroup;
 			children = (
 				D90EFEB52077C25600DD80E9 /* View */,
+				D90EFEBA2077C8A400DD80E9 /* Interactor */,
+				D90EFEBB2077C8B100DD80E9 /* Presenter */,
+				D90EFEC22077C95800DD80E9 /* Entity */,
+				D90EFEC92077CD1300DD80E9 /* Router */,
+				D90EFEC02077C91B00DD80E9 /* PostDetailsAssembly.swift */,
 			);
 			path = PostDetails;
 			sourceTree = "<group>";
@@ -429,17 +485,25 @@
 				D90EFE862077731E00DD80E9 /* WebClient.swift in Sources */,
 				D90EFE9F2077778200DD80E9 /* FeedView.swift in Sources */,
 				D90EFE882077750700DD80E9 /* FeedViewController.swift in Sources */,
+				D90EFECB2077CD3200DD80E9 /* PostDetailsRouterInput.swift in Sources */,
+				D90EFEC42077C96F00DD80E9 /* PostDetailsWebClient.swift in Sources */,
 				D90EFEAB2077B24500DD80E9 /* JSONPost.swift in Sources */,
 				D90EFE8C2077753A00DD80E9 /* FeedInteractor.swift in Sources */,
 				D90EFEB12077B87400DD80E9 /* DataSourceAdapter.swift in Sources */,
+				D90EFEC12077C91B00DD80E9 /* PostDetailsAssembly.swift in Sources */,
 				D90EFEB92077C2AE00DD80E9 /* PostDetailsViewController.swift in Sources */,
+				D90EFEBD2077C8CD00DD80E9 /* PostDetailsPresenter.swift in Sources */,
 				D90EFEA1207777C500DD80E9 /* FeedPresenterInput.swift in Sources */,
+				D90EFEBF2077C8D900DD80E9 /* PostDetailsPresenterInput.swift in Sources */,
 				D9E928F320776CED004C4889 /* ApplicationAssembly.swift in Sources */,
+				D90EFEC62077C9A000DD80E9 /* PostDetailsInteractor.swift in Sources */,
 				D90EFEA52077782A00DD80E9 /* FeedRouterInput.swift in Sources */,
+				D90EFECD2077CD4300DD80E9 /* PostDetailsRouter.swift in Sources */,
 				D90EFEB42077C23200DD80E9 /* JSONPostDetails.swift in Sources */,
 				D90EFEB72077C28500DD80E9 /* PostDetailsView.swift in Sources */,
 				D90EFE992077766000DD80E9 /* FeedAssembly.swift in Sources */,
 				D90EFE8A2077752700DD80E9 /* FeedPresenter.swift in Sources */,
+				D90EFEC82077C9B100DD80E9 /* PostDetailsInteractorInput.swift in Sources */,
 				D9E928DE20776BBA004C4889 /* AppDelegate.swift in Sources */,
 				D90EFEA32077780500DD80E9 /* FeedInteractorInput.swift in Sources */,
 				D90EFEA92077B0A000DD80E9 /* FeedWebClient.swift in Sources */,

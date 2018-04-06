@@ -1,5 +1,5 @@
 //
-//  FeedInteractorInput.swift
+//  PostDetailsRouterInput.swift
 //  RestTest
 //
 //  Created by Dmytro Hrebeniuk on 4/6/18.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol FeedInteractorInput {
+protocol PostDetailsRouterInput {
 	
-	func load(completion: @escaping JSONResultCompletion<[JSONPost]>)
-	
+	func show(error: Error?)
+
 }

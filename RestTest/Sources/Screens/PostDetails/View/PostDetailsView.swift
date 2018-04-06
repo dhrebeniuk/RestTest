@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol PostDetailsView {
+protocol PostDetailsView: View {
+
+	func unblockUI()
 
 }

@@ -12,9 +12,9 @@ import Alamofire
 class FeedWebClient: WebClient {
 
 	public func requestPosts(completion: @escaping JSONResultCompletion<[JSONPost]>) {
-		let eventsURL = self.webAPIURL.appendingPathComponent("posts")
+		let postsURL = self.webAPIURL.appendingPathComponent("posts")
 
-		Alamofire.request(eventsURL, method: .get, parameters: [:]).responseJSON { (response) in
+		Alamofire.request(postsURL, method: .get, parameters: [:]).responseJSON { (response) in
 			switch response.result {
 			case .success(_):
 				response.data.map { jsonData in

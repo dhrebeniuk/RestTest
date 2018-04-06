@@ -8,6 +8,9 @@
 
 import Foundation
 
-class JSONPostDetails: JSONPost {
-	
+struct JSONPostDetails: Decodable {	
+	public let userId: Int
+	public let id: Int
+	public let title: String
+	public let body: String
 }

@@ -28,6 +28,9 @@ class ApplicationAssembly {
 	private func registerAssemblies(in container: Swinject.Container) {
 		let feedAssembly = FeedAssembly()
 		feedAssembly.assembly(in: container)
+		
+		let postDetailsAssembly = PostDetailsAssembly()
+		postDetailsAssembly.assembly(in: container)
 	}
 	
 }

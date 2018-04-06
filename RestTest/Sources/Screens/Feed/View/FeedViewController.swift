@@ -61,7 +61,6 @@ extension FeedViewController: FeedView {
 	func unblockUI() {
 		self.refreshControl?.endRefreshing()
 	}
-
 }
 
 extension FeedViewController {
