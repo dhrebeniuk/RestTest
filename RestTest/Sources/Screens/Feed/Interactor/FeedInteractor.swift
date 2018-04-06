@@ -18,18 +18,33 @@ class FeedInteractor: FeedInteractorInput {
 		self.managedContext = managedContext
 	}
 	
-	func load(completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>) {
+	func load(completion: @escaping (NSFetchedResultsController<Post>, Error?) -> ()) {
 		self.webClient?.requestPosts() { [weak self] in
 			switch $0 {
 			case .success(let posts):
-				self?.fetch(posts: posts, completion: completion)
+				self?.fetch(posts: posts)
+				DispatchQueue.main.async {
+					try? self?.managedContext?.save()
+					
+					self?.createFetchResultController().map() {
+						completion($0, nil)
+					}
+				}
 			case .error(let error):
-				completion(RequestResult<NSFetchedResultsController<Post>>.error(error))
+				DispatchQueue.main.async {
+					self?.createFetchResultController().map() {
+						completion($0, error)
+					}
+				}
 			}
 		}
 	}
 	
-	private func fetch(posts: [JSONPost], completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>) {
+	func load(completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>) {
+
+	}
+	
+	private func fetch(posts: [JSONPost]) {
 		
 		let privateManagedContext = self.managedContext.map() { managedContext -> NSManagedObjectContext in
 			let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -58,15 +73,6 @@ class FeedInteractor: FeedInteractorInput {
 		}
 		
 		try? privateManagedContext?.save()
-		
-		DispatchQueue.main.async {
-			try? self.managedContext?.save()
-			
-			self.createFetchResultController().map() {
-				
-				completion(RequestResult<NSFetchedResultsController<Post>>.success($0))
-			}
-		}
 	}
 	
 	private func createFetchResultController() -> NSFetchedResultsController<Post>? {

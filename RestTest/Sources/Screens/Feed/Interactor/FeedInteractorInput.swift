@@ -11,6 +11,6 @@ import CoreData
 
 protocol FeedInteractorInput {
 	
-	func load(completion: @escaping RequestResultCompletion<NSFetchedResultsController<Post>>)
+	func load(completion: @escaping (NSFetchedResultsController<Post>, Error?) -> ())
 	
 }

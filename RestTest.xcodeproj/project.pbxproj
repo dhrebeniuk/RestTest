@@ -24,7 +24,6 @@
 		D90EFEA92077B0A000DD80E9 /* FeedWebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEA82077B0A000DD80E9 /* FeedWebClient.swift */; };
 		D90EFEAB2077B24500DD80E9 /* JSONPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEAA2077B24500DD80E9 /* JSONPost.swift */; };
 		D90EFEAF2077B66700DD80E9 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEAE2077B66700DD80E9 /* UIViewControllerExtensions.swift */; };
-		D90EFEB12077B87400DD80E9 /* DataSourceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB02077B87400DD80E9 /* DataSourceAdapter.swift */; };
 		D90EFEB42077C23200DD80E9 /* JSONPostDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */; };
 		D90EFEB72077C28500DD80E9 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */; };
 		D90EFEB92077C2AE00DD80E9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */; };
@@ -68,7 +67,6 @@
 		D90EFEA82077B0A000DD80E9 /* FeedWebClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWebClient.swift; sourceTree = "<group>"; };
 		D90EFEAA2077B24500DD80E9 /* JSONPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPost.swift; sourceTree = "<group>"; };
 		D90EFEAE2077B66700DD80E9 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		D90EFEB02077B87400DD80E9 /* DataSourceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAdapter.swift; sourceTree = "<group>"; };
 		D90EFEB32077C23200DD80E9 /* JSONPostDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPostDetails.swift; sourceTree = "<group>"; };
 		D90EFEB62077C28500DD80E9 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
 		D90EFEB82077C2AE00DD80E9 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 				D90EFE9C2077769400DD80E9 /* Assembly.swift */,
 				D90EFEA62077B04100DD80E9 /* View.swift */,
 				D90EFEE12077E29700DD80E9 /* DataSourceFetchResultsAdapter.swift */,
-				D90EFEB02077B87400DD80E9 /* DataSourceAdapter.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 				D90EFEC42077C96F00DD80E9 /* PostDetailsWebClient.swift in Sources */,
 				D90EFEAB2077B24500DD80E9 /* JSONPost.swift in Sources */,
 				D90EFE8C2077753A00DD80E9 /* FeedInteractor.swift in Sources */,
-				D90EFEB12077B87400DD80E9 /* DataSourceAdapter.swift in Sources */,
 				D90EFEC12077C91B00DD80E9 /* PostDetailsAssembly.swift in Sources */,
 				D90EFEB92077C2AE00DD80E9 /* PostDetailsViewController.swift in Sources */,
 				D90EFEBD2077C8CD00DD80E9 /* PostDetailsPresenter.swift in Sources */,

@@ -26,12 +26,11 @@ class FeedPresenter {
 extension FeedPresenter: FeedPresenterInput {
 	
 	func load(completion: @escaping (NSFetchedResultsController<Post>) -> ()) {
-		self.interactor?.load() { [weak self] in
-			switch $0 {
-			case .success(let result):
-				completion(result)
-			case .error(let error):
-				self?.router?.show(error: error)
+		self.interactor?.load() { [weak self] (fetchResults, error) in
+			completion(fetchResults)
+			
+			error.map() {
+				self?.router?.show(error: $0)
 			}
 		}
 	}
