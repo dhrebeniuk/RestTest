@@ -28,6 +28,8 @@ extension PostDetailsPresenter: PostDetailsPresenterInput {
 			case .success(let result):
 				completion(result)
 			case .error(let error):
+				completion(post)
+				
 				self?.router?.show(error: error)
 			}
 		}
